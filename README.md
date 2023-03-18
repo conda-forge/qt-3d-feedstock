@@ -1,11 +1,11 @@
-About qt-3d
-===========
+About qt-3d-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qt-3d-feedstock/blob/main/LICENSE.txt)
 
 Home: http://qt-project.org
 
-Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qt-3d-feedstock/blob/main/LICENSE.txt)
+Package license: LGPL-3.0-only
 
 Summary: Qt is a cross-platform application and UI framework.
 
