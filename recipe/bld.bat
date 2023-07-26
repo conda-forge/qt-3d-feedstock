@@ -16,7 +16,6 @@ cmake -LAH -G "Ninja" ^
     -DINSTALL_EXAMPLESDIR=share/doc/qt6/examples ^
     -DINSTALL_DATADIR=share/qt6 ^
     -DFEATURE_qt3d_system_assimp=ON ^
-    -DFEATURE_qt3d_vulkan=ON ^
     ..
 if errorlevel 1 exit 1
 
