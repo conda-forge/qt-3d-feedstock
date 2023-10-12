@@ -1,4 +1,4 @@
-{% set version = "6.5.2" %}
+{% set version = "6.5.3" %}
 
 package:
   name: qt6-3d
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qt3d-everywhere-src-{{ version }}.tar.xz
-  md5: 15a4bbbb86552df681ce23bb91e78531
+  md5: be722acd016a6f92918d93e910106ec6
   patches:
     # qt tries to run assimp and fails on win32 although assimp is found 
     - patches/0033-qt3d-disable-assimp-compile-test.patch
 
 build:
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('qt6-3d', max_pin='x.x') }}
@@ -24,7 +24,7 @@ requirements:
     - perl
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - qt6-main  # [build_platform != target_platform]
+    - qt6-main {{ version }}             # [build_platform != target_platform]
     - sysroot_linux-64 2.17              # [linux]
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
@@ -35,7 +35,7 @@ requirements:
   host:
     - libvulkan-headers                  # [not osx]
     - libvulkan-loader                   # [not osx]
-    - qt6-main
+    - qt6-main {{ version }}
     - assimp
     - libzlib
 
