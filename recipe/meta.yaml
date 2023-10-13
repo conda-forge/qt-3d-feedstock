@@ -1,4 +1,4 @@
-{% set version = "6.5.3" %}
+{% set version = "6.6.0" %}
 
 package:
   name: qt6-3d
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qt3d-everywhere-src-{{ version }}.tar.xz
-  md5: be722acd016a6f92918d93e910106ec6
+  md5: 57fc6ea6f708442c8e0a52909c3b332d
   patches:
     # qt tries to run assimp and fails on win32 although assimp is found 
     - patches/0033-qt3d-disable-assimp-compile-test.patch
