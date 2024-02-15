@@ -1,5 +1,4 @@
 
-mkdir build && cd build
 cmake -LAH -G "Ninja" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
@@ -16,10 +15,10 @@ cmake -LAH -G "Ninja" ^
     -DINSTALL_EXAMPLESDIR=share/doc/qt6/examples ^
     -DINSTALL_DATADIR=share/qt6 ^
     -DFEATURE_qt3d_system_assimp=ON ^
-    ..
+    -B build .
 if errorlevel 1 exit 1
 
-cmake --build . --target install --config Release
+cmake --build build --target install --config Release
 if errorlevel 1 exit 1
 
 :: we set INSTALL_BINDIR != /bin to avoid clobbering qt5 exes but still dlls in /bin
