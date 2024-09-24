@@ -12,7 +12,7 @@ source:
     - patches/0033-qt3d-disable-assimp-compile-test.patch
 
 build:
-  number: 2
+  number: 3
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('qt6-3d', max_pin='x.x') }}
@@ -26,13 +26,10 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - qt6-main {{ version }}             # [build_platform != target_platform]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd-egl') }}          # [linux]
   host:
+    - libgl-devel                        # [linux]
+    - libegl-devel                       # [linux]
+    - libopengl-devel                    # [linux]
     - libvulkan-headers                  # [not osx]
     - libvulkan-loader                   # [not osx]
     - qt6-main {{ version }}
@@ -41,12 +38,6 @@ requirements:
 
 test:
   requires:
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd-egl') }}          # [linux]
     - cmake
     - ninja
   source_files:
