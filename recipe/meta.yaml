@@ -37,11 +37,6 @@ requirements:
     - libzlib
 
 test:
-  requires:
-    - cmake
-    - ninja
-  source_files:
-    - examples/
   commands:
     {% set qt_libs = ["3DAnimation", "3DCore", "3DExtras", "3DLogic", "3DRender"] %}
     {% for each_qt_lib in qt_libs %}
