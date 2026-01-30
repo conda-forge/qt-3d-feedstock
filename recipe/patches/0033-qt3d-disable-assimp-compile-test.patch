@@ -1,11 +1,13 @@
 diff --git a/src/core/configure.cmake b/src/core/configure.cmake
-index be9b63cc5..6abeb1192 100644
+index 7a0543619..6dc262965 100644
 --- a/src/core/configure.cmake
 +++ b/src/core/configure.cmake
-@@ -12,15 +12,6 @@ set_property(CACHE INPUT_qt3d_assimp PROPERTY STRINGS undefined qt system no)
+@@ -13,16 +13,7 @@ set_property(CACHE INPUT_qt3d_assimp PROPERTY STRINGS undefined qt system no)
  
- qt_find_package(WrapQt3DAssimp 5 PROVIDED_TARGETS WrapQt3DAssimp::WrapQt3DAssimp MODULE_NAME 3dcore QMAKE_LIB qt3d-assimp)
+ #### Libraries
  
+-qt_find_package(WrapQt3DAssimp 5 PROVIDED_TARGETS WrapQt3DAssimp::WrapQt3DAssimp MODULE_NAME 3dcore QMAKE_LIB qt3d-assimp)
+-
 -qt_config_compile_test("assimp"
 -                   LABEL ""
 -                   PROJECT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../config.tests/assimp"
@@ -14,11 +16,11 @@ index be9b63cc5..6abeb1192 100644
 -                   PACKAGES PACKAGE WrapQt3DAssimp 5
 -# special case end
 -)
--
++qt_find_package(WrapQt3DAssimp 6 PROVIDED_TARGETS WrapQt3DAssimp::WrapQt3DAssimp MODULE_NAME 3dcore QMAKE_LIB qt3d-assimp)
+ 
  
  #### Tests
- 
-@@ -34,7 +25,7 @@ qt_feature("qt3d-assimp" PUBLIC PRIVATE
+@@ -37,7 +28,7 @@ qt_feature("qt3d-assimp" PUBLIC PRIVATE
  qt_feature_definition("qt3d-assimp" "QT_NO_QT3D_ASSIMP" NEGATE VALUE "1")
  qt_feature("qt3d-system-assimp" PRIVATE
      LABEL "System Assimp"
