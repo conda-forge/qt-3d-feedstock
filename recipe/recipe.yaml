@@ -1,5 +1,5 @@
 context:
-  version: "6.11.0"
+  version: "6.11.1"
   maj_min: ${{ (version | split('.'))[:2] | join('.') }}
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://download.qt.io/official_releases/qt/${{ maj_min }}/${{ version }}/submodules/qt3d-everywhere-src-${{ version }}.tar.xz
-  md5: c269ed568bc2faa4493b09821c5c82e9
+  md5: 34273de6fc7267857877660798632a7a
   patches:
     # qt tries to run assimp and fails on win32 although assimp is found 
     - patches/0033-qt3d-disable-assimp-compile-test.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
