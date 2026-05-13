@@ -1,5 +1,5 @@
 assimp:
-- 6.0.3
+- '6'
 c_compiler:
 - gcc
 c_compiler_version:
